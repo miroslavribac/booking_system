@@ -1,0 +1,94 @@
+body {
+    background: url('../images/car.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.booking{
+    margin-top:120px;
+    width:95%;
+    height:400px;
+}
+.container-fluid h1{
+    text-align: center;
+    font-size: 46px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    margin-top:45px;
+    font-weight: bold;
+    opacity: 0.8;
+}
+#registration-number{
+    width: 50%;
+    height: 40px;
+    padding: 5px;
+    border:1px solid #bababa;
+    border-radius:5px;
+}
+#date {
+    width: 50%;
+    height: 40px;
+    padding: 5px;
+    border:1px solid #bababa;
+    border-radius:5px;
+}
+.first-name,
+.last-name,
+.email,
+.address {
+    width: 50%;
+    height: 40px;
+    padding: 5px;
+    border:1px solid #bababa;
+    border-radius:5px;
+}
+.booking-form .next{
+    width: 150px;
+    height: 35px;
+    background-color: #2e6da4;
+    border: 1px solid #2e6da4;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left:30px;
+}
+.car-registration{
+    position: relative;
+}
+.car-registration .reg{
+    width:140px;
+    position:absolute;
+    left:308px;
+    border:1px solid #bababa;
+    border-radius: 5px;
+}
+.booking-date{
+    display:none;
+}
+.booking-date .next {
+    margin-top: 25px;
+}
+.booking .booking-form .booking-date .input-group-addon{
+    position:relative;
+    right:48%;
+}
+.personal-info {
+    display:none;
+}
+.personal-info p {
+    color:#ffffff;
+    font-size:20px;
+    font-weight: bold;
+}
+.booking-form .person,
+.booking-form .company{
+    color: #ffffff;
+}
+.active{
+    display: block;
+}
+.hidden{
+    display:none;
+}
