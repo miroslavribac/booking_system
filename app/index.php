@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="personal-info">
-                        <p>Personal Informations:</p>
+                        <p>Personal Informations</p>
                         <div class="form-group">
                             <input placeholder="First name" type="text" name="first-name" id="first-name" class="first-name" />
                         </div>
