@@ -14,7 +14,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <h1>CHANGE YOUR WHEEL WITH US</h1>
+        <h1>CHANGE YOUR WHEELS WITH US</h1>
         <div class="col-sm-9 col-sm-offset-2">
             <section class="booking">
                 <form class="booking-form" action="#" method="POST">
@@ -60,6 +60,10 @@
                         <div class="form-group">
                             <button type="submit" class="next">Next</button>
                         </div>
+                    </div>
+                    <div class="location">
+                        <p>Choose your location</p>
+                        <input type="checkbox" name="our-service" id="our-service" class="our-service" >
                     </div>
                 </form>
             </section>
