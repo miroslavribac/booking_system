@@ -18,6 +18,7 @@ include("classes/Calendar.php");
 
 $calendar = new Calendar();
 echo $calendar->showDaily();
+//echo $calendar->show();
 
 ?>
 

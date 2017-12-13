@@ -129,12 +129,20 @@ class Calendar {
 
         $prevDay = $this->currentDay==1?$days_in_month:intval($this->currentDay)-1;
 
+        $nextMonth = $this->currentMonth>12?1:intval($this->currentMonth)+1;
+
+        $nextYear = $this->currentMonth==12?intval($this->currentYear)+1:$this->currentYear;
+
+        $preMonth = $this->currentMonth==1?12:intval($this->currentMonth)-1;
+
+        $preYear = $this->currentMonth==1?intval($this->currentYear)-1:$this->currentYear;
+
 
         return
         '<div class="header">'.
-        '<a class="prev" href="'.$this->naviHref.'?day='.sprintf('%02d',$prevDay).'">Prev</a>'.
+        '<a class="prev" href="'.$this->naviHref.'?day='.sprintf('%02d',$prevDay).'?month='.sprintf('%02d', $preMonth).'">Prev</a>'.
         '<span class="title">'.date('M d',strtotime($this->currentMonth.'-'.$this->currentDay.'-1')).'</span>'.
-        '<a class="next" href="'.$this->naviHref.'?day='.sprintf("%02d", $nextDay).'">Next</a>'.
+        '<a class="next" href="'.$this->naviHref.'?day='.sprintf("%02d", $nextDay).'?month='.sprintf('%02d', $nextMonth).'">Next</a>'.
         '</div>';
 
     }
