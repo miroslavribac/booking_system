@@ -14,7 +14,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <h1>CHANGE YOUR WHEEL WHEREVER YOU ARE</h1>
+        <h1>CHANGE YOUR WHEEL WITH US</h1>
         <div class="col-sm-9 col-sm-offset-2">
             <section class="booking">
                 <form class="booking-form" action="#" method="POST">
