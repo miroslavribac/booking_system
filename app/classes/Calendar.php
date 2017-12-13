@@ -114,7 +114,7 @@ class Calendar {
         if(null==$month && isset($_GET['month'])){
             $this->currentMonth = $_GET['month'];
         }else{
-            $this->currentMonth = date("M", time());
+            $this->currentMonth = date("m", time());
         }
 
         if(null==$day&& isset($_GET['day'])){
@@ -124,28 +124,67 @@ class Calendar {
         }
 
         $days_in_month = date("t");
+        $month = date('M', mktime(0, 0, 0, $this->currentMonth, 10));
 
-        $nextDay = $this->currentDay==$days_in_month?1:intval($this->currentDay)+1;
+        $nextDay = $this->currentDay == $days_in_month ? 01 : $this->currentDay+1;
+        $prevDay = $this->currentDay == 01 ? $this->_previousMonthLastDay() : $this->currentDay-1;
 
-        $prevDay = $this->currentDay==1?$days_in_month:intval($this->currentDay)-1;
-
-        $nextMonth = $this->currentMonth>12?1:intval($this->currentMonth)+1;
-
-        $nextYear = $this->currentMonth==12?intval($this->currentYear)+1:$this->currentYear;
-
-        $preMonth = $this->currentMonth==1?12:intval($this->currentMonth)-1;
-
-        $preYear = $this->currentMonth==1?intval($this->currentYear)-1:$this->currentYear;
-
+        $prevMonth = $this->currentMonth == 01 ? 12 : $this->currentMonth-1;
 
         return
-        '<div class="header">'.
-        '<a class="prev" href="'.$this->naviHref.'?day='.sprintf('%02d',$prevDay).'?month='.sprintf('%02d', $preMonth).'">Prev</a>'.
-        '<span class="title">'.date('M d',strtotime($this->currentMonth.'-'.$this->currentDay.'-1')).'</span>'.
-        '<a class="next" href="'.$this->naviHref.'?day='.sprintf("%02d", $nextDay).'?month='.sprintf('%02d', $nextMonth).'">Next</a>'.
-        '</div>';
+            '<a href="'.$this->naviHref.'?month='.$this->_prevMonth().'&day='.$prevDay.'">Prev</a>'.
+            '<span>'.$this->_currentMonth() . " " . $this->_currentDay().'</span>'.
+            '<a href="'.$this->naviHref.'?month='.$this->_nextMonth().'&day='.$nextDay.'">Next</a>';
 
     }
+
+    private function _prevMonth()
+    {
+        if($this->currentMonth == 01){
+            $this->currentMonth = 12;
+        }else if($this->currentDay == 01){
+            $this->currentMonth = $this->currentMonth-1;
+        }
+        return $this->currentMonth;
+    }
+
+    private function _nextMonth()
+    {
+        if((date("t") == $this->currentDay) && ($this->currentMonth == 12)){
+            $this->currentMonth = 01;
+            return $this->currentMonth;
+        }elseif(date("t") == $this->currentDay){
+            $this->currentMonth = $this->currentMonth+1;
+            return $this->currentMonth;
+        }else{
+            return $this->currentMonth;
+        }
+
+
+
+//        if($this->currentDay == date("t")){
+//            $this->currentMonth = $this->currentMonth+1;
+//        }elseif(($this->currentMonth == 12) && ($this->currentDay == date("t"))){
+//            $this->currentMonth = 1;
+//        }
+//        return $this->currentMonth;
+    }
+
+    private function _previousMonthLastDay()
+    {
+        return date("d", strtotime("last day of " . strval($this->currentMonth-1) . " month"));
+    }
+
+    private function _currentMonth()
+    {
+       return date('M', mktime(0, 0, 0, $this->currentMonth, 10));
+    }
+
+    private function _currentDay()
+    {
+        return $this->currentDay;
+    }
+
 
     /********************* PRIVATE **********************/
     /**
