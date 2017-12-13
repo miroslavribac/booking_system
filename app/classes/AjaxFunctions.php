@@ -28,15 +28,15 @@ function storeBookingObject($post){
     $booking_info = json_encode($booking_info);
 
     $db = new DB();
-    $query = "INSERT INTO appointments (reg_number, first_name, last_name, email, address, booking_info, date) VALUES(:reg_number, :first_name, :last_name, :email, :address, :booking_info, :date)";
+    $query = "INSERT INTO appointments (reg_number, first_name, last_name, email, address, booking_info, appointment_date) VALUES(:reg_number, :first_name, :last_name, :email, :address, :booking_info, :appointment_date)";
     $db->query($query);
     $db->bind(":reg_number", $reg_number);
     $db->bind(":first_name", $first_name);
     $db->bind(":last_name", $last_name);
     $db->bind(":email", $email);
-    $db->bund(":address", $address);
+    $db->bind(":address", $address);
     $db->bind(":booking_info", $booking_info);
-    $db->bind(":date", $date);
+    $db->bind(":appointment_date", $date);
     $db->execute();
 
 }

@@ -29,7 +29,11 @@ $(document).ready(function(){
             method: "POST",
             data: serialized_data,
             success: function(data){
-                alert(data);
+                $(".location-info").toggleClass("active");
+                $(".car-registration").toggleClass("hidden");
+                $( '.booking-form' ).each(function(){
+                    this.reset();
+                });
             },
             error: function(xhr, status, error){
                 console.log(error);
