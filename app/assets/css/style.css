@@ -77,7 +77,9 @@ body {
 .personal-info {
     display:none;
 }
-.personal-info p {
+.personal-info p,
+.car-registration p,
+.booking-date p {
     color:#ffffff;
     font-size:20px;
     font-weight: bold;

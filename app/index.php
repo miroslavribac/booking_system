@@ -19,11 +19,12 @@
             <section class="booking">
                 <form class="booking-form" action="#" method="POST">
                     <div class="car-registration">
-                        <input type="text" name="registration-number" id="registration-number"/>
-                        <img class="reg" src="assets/images/reg.png" alt="registration" />
+                        <p>Registration number</p>
+                        <input type="text" name="registration-number" id="registration-number" placeholder="BG025SJ"/>
                         <button type="button" class="next">Next</button>
                     </div>
                     <div class="booking-date">
+                        <p>Choose your booking date</p>
                         <div class='input-group date' id='datepicker'>
                             <input name="date" id="date" type='text' class="form-control" />
                             <span class="input-group-addon">
