@@ -25,6 +25,8 @@ class Calendar {
 
     private $naviHref= null;
 
+    const HOURS_IN_DAY = 24;
+
     /********************* PUBLIC **********************/
 
     /**
@@ -34,6 +36,8 @@ class Calendar {
         $year  = null;
 
         $month = null;
+
+        $hours = null;
 
         if(null==$year&&isset($_GET['year'])){
 
@@ -88,6 +92,51 @@ class Calendar {
 
         $content.='</div>';
         return $content;
+    }
+
+    /**
+     * Prints out daily calendar
+     */
+    public function showDaily()
+    {
+        $year  = null;
+
+        $month = null;
+
+        $day = null;
+
+        if(null==$year && isset($_GET['year'])){
+            $this->currentYear = $_GET['year'];
+        }else{
+            $this->currentYear = date("Y", time());
+        }
+
+        if(null==$month && isset($_GET['month'])){
+            $this->currentMonth = $_GET['month'];
+        }else{
+            $this->currentMonth = date("M", time());
+        }
+
+        if(null==$day&& isset($_GET['day'])){
+            $this->currentDay = $_GET['day'];
+        }else{
+            $this->currentDay = date("d", time());
+        }
+
+        $days_in_month = date("t");
+
+        $nextDay = $this->currentDay==$days_in_month?1:intval($this->currentDay)+1;
+
+        $prevDay = $this->currentDay==1?$days_in_month:intval($this->currentDay)-1;
+
+
+        return
+        '<div class="header">'.
+        '<a class="prev" href="'.$this->naviHref.'?day='.sprintf('%02d',$prevDay).'">Prev</a>'.
+        '<span class="title">'.date('M d',strtotime($this->currentMonth.'-'.$this->currentDay.'-1')).'</span>'.
+        '<a class="next" href="'.$this->naviHref.'?day='.sprintf("%02d", $nextDay).'">Next</a>'.
+        '</div>';
+
     }
 
     /********************* PRIVATE **********************/
@@ -145,6 +194,32 @@ class Calendar {
             '<span class="title">'.date('Y M',strtotime($this->currentYear.'-'.$this->currentMonth.'-1')).'</span>'.
             '<a class="next" href="'.$this->naviHref.'?month='.sprintf("%02d", $nextMonth).'&year='.$nextYear.'">Next</a>'.
             '</div>';
+    }
+
+    /**
+     * create daily navigation
+     */
+    private function _createDayNavi()
+    {
+        $nextDay = $this->currentDay==24?1:intval($this->currentDay)+1;
+
+        $nextMonth = $this->currentMonth==12?1:intval($this->currentMonth)+1;
+
+        $nextYear = $this->currentMonth==12?intval($this->currentYear)+1:$this->currentYear;
+
+        $preDay = $this->currentDay==1?24:intval($this->currentDay)-1;
+
+        $preMonth = $this->currentMonth==1?12:intval($this->currentMonth)-1;
+
+        $preYear = $this->currentMonth==1?intval($this->currentYear)-1:$this->currentYear;
+
+        return
+            '<div class="header">'.
+            '<a class="prev" href="'.$this->naviHref.'?day='.sprintf('%02d',$preDay).'&month='.$preMonth.'">Prev</a>'.
+            '<span class="title">'.date('M d',strtotime($this->currentMonth.'-'.$this->currentDay.'-1')).'</span>'.
+            '<a class="next" href="'.$this->naviHref.'?day='.sprintf("%02d", $nextDay).'&month='.$nextMonth.'">Next</a>'.
+            '</div>';
+
     }
 
     /**
