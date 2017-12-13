@@ -13,6 +13,13 @@ $(document).ready(function(){
         $(".booking-date").toggleClass("hidden");
         $(".personal-info").toggleClass("active");
     });
+    $(".personal-info .next").click(function(){
+        $(".personal-info").toggleClass("active");
+        $(".location-info").toggleClass("active");
+    });
+    $(".location-info .your-location").click(function(){
+        $(".location-info .custom-location").toggleClass("active-inline");
+    });
 
     $(".booking-form").submit(function(e){
         e.preventDefault();
@@ -28,17 +35,6 @@ $(document).ready(function(){
                 console.log(error);
             }
         });
-        // var object = {
-        //     "reg-number": $("#registration-number").val(),
-        //     "date": $("#date").val(),
-        //     "first-name": $("#first-name").val(),
-        //     "last-name": $("#last-name").val(),
-        //     "email": $("#email").val(),
-        //     "address": $("#address").val(),
-        //     "checkbox": $('#person').is(":checked") ? "person" : "company"
-        // };
-        //
-        // console.log(object);
     });
 
 });

@@ -58,12 +58,21 @@
                             <span class="company">Company</span>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="next">Next</button>
+                            <button type="button" class="next">Next</button>
                         </div>
                     </div>
-                    <div class="location">
+                    <div class="location-info">
                         <p>Choose your location</p>
-                        <input type="checkbox" name="our-service" id="our-service" class="our-service" >
+                        <div class="form-group">
+                            <input type="checkbox" name="our-service" id="our-service" class="our-service" />
+                            <span class="service">Come to our service</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="your-location" id="your-location" class="your-location" />
+                            <span class="customer">We come to your location</span>
+                        </div>
+                        <input type="text" name="custom-location" id="custom-location" class="custom-location" placeholder="Please enter your location" />
+                        <button type="submit" class="next">Next</button>
                     </div>
                 </form>
             </section>

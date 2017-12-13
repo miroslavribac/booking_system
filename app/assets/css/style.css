@@ -36,7 +36,8 @@ body {
 .first-name,
 .last-name,
 .email,
-.address {
+.address,
+#custom-location {
     width: 50%;
     height: 40px;
     padding: 5px;
@@ -77,9 +78,10 @@ body {
 .personal-info {
     display:none;
 }
-.personal-info p,
-.car-registration p,
-.booking-date p {
+.location-info{
+    display: none;
+}
+.booking-form p{
     color:#ffffff;
     font-size:20px;
     font-weight: bold;
@@ -88,11 +90,17 @@ body {
 .booking-form .company{
     color: #ffffff;
 }
+.custom-location{
+    display:none;
+}
 .active{
     display: block;
 }
 .hidden{
     display:none;
+}
+.active-inline{
+    display:inline-block;
 }
 
 /****************** Calendar css ****************/
