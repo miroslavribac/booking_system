@@ -1,6 +1,6 @@
 <?php
 
-include("DB.php");
+include("Booking_Object.php");
 
 class Calendar {
 
@@ -9,7 +9,6 @@ class Calendar {
      */
     public function __construct(){
         $this->naviHref = htmlentities($_SERVER['PHP_SELF']);
-        $this->db = new DB();
     }
 
     /********************* PROPERTY ********************/
@@ -26,10 +25,6 @@ class Calendar {
     private $daysInMonth=0;
 
     private $naviHref= null;
-
-    private $db;
-
-    const HOURS_IN_DAY = 24;
 
     /********************* PUBLIC **********************/
 
@@ -136,13 +131,16 @@ class Calendar {
 
     private function _showHours()
     {
-        $query = "SELECT * FROM appointments WHERE appointment_date = " . $this->currentMonth . "/" . $this->_currentDay() . "/" . $this->_currentYear();
-        $this->db->query($query);
-        $result = $this->db->resultSet();
+        $bookingObject = new Booking_Object();
+        $allBookingsPerDate = $bookingObject->allBookingsPerDate($this->currentMonth, $this->_currentDay(), $this->_currentYear());
 
-        return $query;
+        $result = "";
+        foreach($allBookingsPerDate as $booking){
+            $result .= "<li>".$booking['time_slot']."</li>";
+        }
 
-//        return "<li>08:00</li><li>10:00</li><li>12:00</li><li>14:00</li><li>16:00</li><li>18:00</li>";
+        return $result;
+
     }
 
     private function _prevDay()
