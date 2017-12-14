@@ -18,9 +18,9 @@ include("classes/Calendar.php");
 
 $calendar = new Calendar();
 echo $calendar->showDaily();
-//echo $calendar->show();
 
 ?>
+
 
 <!--<div class="container-fluid">-->
 <!--    <div class="row">-->
