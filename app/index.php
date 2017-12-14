@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors',1);
-include("classes/Calendar.php");
+//include("classes/Calendar.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,6 @@ include("classes/Calendar.php");
     echo $calendar->showDaily();
     ?>
 </div>
-
 
 <!--<div class="container-fluid">-->
 <!--    <div class="row">-->

@@ -31,6 +31,7 @@ $(document).ready(function(){
         $(".booking-form").submit(function(e){
             e.preventDefault();
             var serialized_data = $(this).serialize();
+
             $.ajax({
                 url: "classes/AjaxFunctions.php",
                 method: "POST",

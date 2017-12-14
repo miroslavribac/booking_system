@@ -1,9 +1,9 @@
 body {
-    /*background: url('../images/car.jpg') no-repeat center center fixed;*/
-    /*-webkit-background-size: cover;*/
-    /*-moz-background-size: cover;*/
-    /*-o-background-size: cover;*/
-    /*background-size: cover;*/
+    background: url('../images/car.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .booking{
     margin-top:120px;
@@ -81,9 +81,14 @@ body {
 .location-info{
     display: none;
 }
+.location-info span{
+    font-size:18px;
+    color: #000000;
+    font-weight: bold;
+}
 .booking-form p{
     color:#ffffff;
-    font-size:20px;
+    font-size:24px;
     font-weight: bold;
 }
 .booking-form .person,
