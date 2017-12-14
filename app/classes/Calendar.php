@@ -171,6 +171,12 @@ class Calendar {
         return $currentDay;
     }
 
+    private function _currentDay()
+    {
+//        return $this->currentDay;
+        return date('d', mktime(0, 0, 0, $this->currentMonth, $this->currentDay));
+    }
+
     private function _prevMonth()
     {
         $prevMonth = "";
@@ -197,6 +203,16 @@ class Calendar {
         return $nextMonth;
     }
 
+    private function _currentMonth()
+    {
+        return date('M', mktime(0, 0, 0, $this->currentMonth, 10));
+    }
+
+    private function _currentYear()
+    {
+        return date('Y', mktime(0, 0, 0, $this->currentMonth, $this->currentDay, $this->currentMonth == 12 ? $this->currentYear+1 : $this->currentYear));
+    }
+
     private function _curentMonthLastDay()
     {
         return date("d", strtotime("last day of " . strval($this->currentMonth) . " month"));
@@ -205,23 +221,6 @@ class Calendar {
     private function _previousMonthLastDay()
     {
         return date("d", strtotime("last day of " . strval($this->currentMonth-1) . " month"));
-    }
-
-
-    private function _currentMonth()
-    {
-       return date('M', mktime(0, 0, 0, $this->currentMonth, 10));
-    }
-
-    private function _currentYear()
-    {
-        return date('Y', mktime(0, 0, 0, $this->currentMonth, $this->currentDay, $this->currentMonth == 12 ? $this->currentYear+1 : $this->currentYear));
-    }
-
-    private function _currentDay()
-    {
-//        return $this->currentDay;
-        return date('d', mktime(0, 0, 0, $this->currentMonth, $this->currentDay));
     }
 
 
