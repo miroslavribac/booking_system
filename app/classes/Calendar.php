@@ -127,11 +127,9 @@ class Calendar {
             $this->currentDay = date("d", time());
         }
 
-
-
         return
             '<div id="calendar"><div class="box"><div class="header"><div id="'.$this->_prevMonth().'" class="prev-month"><a id="'.$this->_prevDay().'" class="prev" href="'.$this->naviHref.'?month='.$this->_prevMonth().'&day='.$this->_prevDay().'">Prev</a></div>'.
-            '<span class="title">'. $this->_currentMonth() . " " . $this->_currentDay().'</span>'.
+            '<span class="title">'. $this->_currentMonth() . " " . $this->_currentDay() . " " .  $this->_currentYear() . '</span>'.
             '<div id="'.$this->_nextMonth().'" class="next-month"><a id="'.$this->_nextDay().'" class="next" href="'.$this->naviHref.'?month='.$this->_nextMonth().'&day='.$this->_nextDay().'">Next</a></div><div class="box-content"><ul class="dates">'.$this->_showHours().'</ul></div></div></div></div>';
 
     }
@@ -210,7 +208,7 @@ class Calendar {
 
     private function _currentYear()
     {
-        return date('Y', mktime(0, 0, 0, $this->currentMonth, $this->currentDay, $this->currentMonth == 12 ? $this->currentYear+1 : $this->currentYear));
+        return date('Y', mktime(0, 0, 0, $this->currentMonth, $this->currentDay, $this->currentMonth == "01" ? $this->currentYear+1 : $this->currentYear));
     }
 
     private function _curentMonthLastDay()

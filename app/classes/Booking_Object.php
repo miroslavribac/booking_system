@@ -14,6 +14,7 @@ class Booking_Object
     private $address;
     private $bookingInfo = array();
     private $date;
+    private $time_slot;
     private $status;
 
     public function __construct()
