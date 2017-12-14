@@ -5,7 +5,6 @@ $(document).ready(function(){
     });
 
     toggleBookingFormInputs();
-    sendBookingData();
 
     function toggleBookingFormInputs(){
 
@@ -25,6 +24,8 @@ $(document).ready(function(){
             $(".location-info .custom-location").toggleClass("active-inline");
         });
     }
+
+    sendBookingData();
 
     function sendBookingData(){
         $(".booking-form").submit(function(e){
@@ -47,12 +48,6 @@ $(document).ready(function(){
             });
         });
     }
-
-
-
-
-
-
 
 
 

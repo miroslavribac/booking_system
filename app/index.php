@@ -1,4 +1,6 @@
-
+<?php
+include("classes/Calendar.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,14 +14,12 @@
 </head>
 <body>
 
-<?php
-
-include("classes/Calendar.php");
-
-$calendar = new Calendar();
-echo $calendar->showDaily();
-
-?>
+<div class="container-fluid">
+    <?php
+    $calendar = new Calendar();
+    echo $calendar->showDaily();
+    ?>
+</div>
 
 
 <!--<div class="container-fluid">-->

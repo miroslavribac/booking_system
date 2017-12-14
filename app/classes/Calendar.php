@@ -1,5 +1,6 @@
 <?php
 
+include("DB.php");
 
 class Calendar {
 
@@ -8,6 +9,7 @@ class Calendar {
      */
     public function __construct(){
         $this->naviHref = htmlentities($_SERVER['PHP_SELF']);
+        $this->db = new DB();
     }
 
     /********************* PROPERTY ********************/
@@ -24,6 +26,8 @@ class Calendar {
     private $daysInMonth=0;
 
     private $naviHref= null;
+
+    private $db;
 
     const HOURS_IN_DAY = 24;
 
@@ -123,11 +127,24 @@ class Calendar {
             $this->currentDay = date("d", time());
         }
 
+
+
         return
             '<div id="calendar"><div class="box"><div class="header"><div id="'.$this->_prevMonth().'" class="prev-month"><a id="'.$this->_prevDay().'" class="prev" href="'.$this->naviHref.'?month='.$this->_prevMonth().'&day='.$this->_prevDay().'">Prev</a></div>'.
             '<span class="title">'. $this->_currentMonth() . " " . $this->_currentDay().'</span>'.
-            '<div id="'.$this->_nextMonth().'" class="next-month"><a id="'.$this->_nextDay().'" class="next" href="'.$this->naviHref.'?month='.$this->_nextMonth().'&day='.$this->_nextDay().'">Next</a></div></div></div></div>';
+            '<div id="'.$this->_nextMonth().'" class="next-month"><a id="'.$this->_nextDay().'" class="next" href="'.$this->naviHref.'?month='.$this->_nextMonth().'&day='.$this->_nextDay().'">Next</a></div><div class="box-content"><ul class="dates">'.$this->_showHours().'</ul></div></div></div></div>';
 
+    }
+
+    private function _showHours()
+    {
+        $query = "SELECT * FROM appointments WHERE appointment_date = " . $this->currentMonth . "/" . $this->_currentDay() . "/" . $this->_currentYear();
+        $this->db->query($query);
+        $result = $this->db->resultSet();
+
+        return $query;
+
+//        return "<li>08:00</li><li>10:00</li><li>12:00</li><li>14:00</li><li>16:00</li><li>18:00</li>";
     }
 
     private function _prevDay()
@@ -194,6 +211,11 @@ class Calendar {
     private function _currentMonth()
     {
        return date('M', mktime(0, 0, 0, $this->currentMonth, 10));
+    }
+
+    private function _currentYear()
+    {
+        return date('Y', mktime(0, 0, 0, $this->currentMonth, $this->currentDay, $this->currentMonth == 12 ? $this->currentYear+1 : $this->currentYear));
     }
 
     private function _currentDay()
