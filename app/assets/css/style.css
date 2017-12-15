@@ -241,3 +241,12 @@ div#calendar ul.dates .slot-green:hover {
     background-color: green;
     color: #ffffff;
 }
+div#calendar ul.dates .slot-red {
+    background-color: #ffffff;
+    color: red;
+    cursor: pointer;
+}
+div#calendar ul.dates .slot-red:hover{
+    background-color: red;
+    color: #ffffff;
+}

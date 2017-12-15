@@ -143,18 +143,28 @@ class Calendar {
 
     private function _showHours()
     {
+        $slots = [];
         $bookingObject = new Booking_Object();
         $allBookingsPerDate = $bookingObject->allBookingsPerDate($this->currentMonth, $this->_currentDay(), $this->_currentYear());
 
         $result = "";
-//        foreach($allBookingsPerDate as $booking){
-//            $result .= "<li>".$booking['time_slot']."</li>";
-//        }
-
-        foreach($this->hours as $hour){
-            $result .= '<li id="'.$hour.'" class="slot-green">'.$hour.'</li>';
+        foreach($allBookingsPerDate as $booking){
+            $slots[] = $booking['time_slot'];
         }
 
+        $available_slots = array_diff($this->hours , $slots);
+        $booked_slots = array_intersect($this->hours, $slots);
+
+
+
+        foreach($this->hours as $key => $hour){
+            if(in_array($hour, $slots)){
+                $result .= '<li id="'.$hour.'" class="slot-red">'.$hour.'</li>';
+            }else{
+                $result .= '<li id="'.$hour.'" class="slot-green">'.$hour.'</li>';
+            }
+
+        }
         return $result;
 
     }

@@ -110,3 +110,10 @@
 [Fri Dec 15 08:05:22.414763 2017] [:error] [pid 3049] [client 127.0.0.1:47557] PHP Notice:  Undefined index: time_slot in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 139, referer: http://booking.local/index.php?month=12&day=11
 [Fri Dec 15 08:05:22.416330 2017] [:error] [pid 3049] [client 127.0.0.1:47557] PHP Notice:  Undefined index: time_slot in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 139, referer: http://booking.local/index.php?month=12&day=11
 [Fri Dec 15 08:05:22.416344 2017] [:error] [pid 3049] [client 127.0.0.1:47557] PHP Notice:  Undefined index: time_slot in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 139, referer: http://booking.local/index.php?month=12&day=11
+[Fri Dec 15 08:57:14.946739 2017] [:error] [pid 3038] [client 127.0.0.1:60668] PHP Notice:  Array to string conversion in /home/miroslav/projects/booking_system/app/index.php on line 22
+[Fri Dec 15 09:02:48.213564 2017] [:error] [pid 1882] [client 127.0.0.1:33807] PHP Notice:  Array to string conversion in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 157
+[Fri Dec 15 09:02:48.213608 2017] [:error] [pid 1882] [client 127.0.0.1:33807] PHP Notice:  Array to string conversion in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 157
+[Fri Dec 15 09:02:48.213617 2017] [:error] [pid 1882] [client 127.0.0.1:33807] PHP Notice:  Array to string conversion in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 157
+[Fri Dec 15 09:02:48.213623 2017] [:error] [pid 1882] [client 127.0.0.1:33807] PHP Notice:  Array to string conversion in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 157
+[Fri Dec 15 09:02:48.213628 2017] [:error] [pid 1882] [client 127.0.0.1:33807] PHP Notice:  Array to string conversion in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 157
+[Fri Dec 15 09:02:48.213633 2017] [:error] [pid 1882] [client 127.0.0.1:33807] PHP Notice:  Array to string conversion in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 157
