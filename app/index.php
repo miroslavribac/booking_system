@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors',1);
-include("classes/Calendar.php");
+//include("classes/Calendar.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@ include("classes/Calendar.php");
 <body>
 
 <!--    --><?php
-    $calendar = new Calendar();
+//    $calendar = new Calendar();
 //    echo $calendar->show();
 //    ?>
 
@@ -27,38 +27,12 @@ include("classes/Calendar.php");
         <div class="col-sm-9 col-sm-offset-2">
             <section class="booking">
                 <form class="booking-form" action="#" method="POST">
-                    <div class="car-registration">
-                        <p>Registration number</p>
-                        <input type="text" name="registration-number" id="registration-number" placeholder="BG025SJ"/>
-                        <button type="button" class="next">Next</button>
-                    </div>
-                    <div class="calendar">
-                        <p>Choose your booking date</p>
-                        <div class="box">
-                            <div class="header">
-                                <div id="<?php echo $calendar->_currentMonth(); ?>" class="prev-month">
-                                    <a id="<?php echo $calendar->_currentDay(); ?>" class="prev-day" href="">Prev</a>
-                                </div>
-                                <span class="title"><?php echo $calendar->_currentMonth() . " " . $calendar->_currentDay() . " " . $calendar->_currentYear(); ?></span>
-                                <div id="" class="next-month">
-                                    <a id="" class="next-day" href="">Next</a>
-                                </div>
-                                <div class="box-content">
-                                    <ul class="dates">
-                                        <li id="08:00" class="slot-green">08:00</li>
-                                        <li id="08:00" class="slot-green">09:00</li>
-                                        <li id="08:00" class="slot-red">10:00</li>
-                                        <li id="08:00" class="slot-green">11:00</li>
-                                        <li id="08:00" class="slot-red">12:00</li>
-                                        <li id="08:00" class="slot-green">13:00</li>
-                                        <li id="08:00" class="slot-green">14:00</li>
-                                        <li id="08:00" class="slot-green">15:00</li>
-                                        <li id="08:00" class="slot-green">16:00</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="car-registration">-->
+<!--                        <p>Registration number</p>-->
+<!--                        <input type="text" name="registration-number" id="registration-number" placeholder="BG025SJ"/>-->
+<!--                        <button type="button" class="next">Next</button>-->
+<!--                    </div>-->
+                    <div class="calendar"></div>
                     <div class="personal-info">
                         <p>Personal Informations</p>
                         <div class="form-group">

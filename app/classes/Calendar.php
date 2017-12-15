@@ -9,9 +9,6 @@ class Calendar {
      */
     public function __construct(){
         $this->naviHref = htmlentities($_SERVER['PHP_SELF']);
-        $this->currentMonth = date('m', mktime(0, 0, 0, 0, 10));
-        $this->currentDay= date('d', mktime(0, 0, 0, 0, 10));
-        $this->currentYear= date('Y', mktime(0, 0, 0, 0, 10));
     }
 
     /********************* PROPERTY ********************/
@@ -140,9 +137,9 @@ class Calendar {
         }
 
         return
-            '<div id="calendar"><div class="box"><div class="header"><div id="'.$this->_prevMonth().'" class="prev-month"><a id="'.$this->_prevDay().'" class="prev" href="'.$this->naviHref.'?month='.$this->_prevMonth().'&day='.$this->_prevDay().'">Prev</a></div>'.
+            '<div class="box"><div class="header"><div id="'.$this->_prevMonth().'" class="prev-month"><a id="'.$this->_prevDay().'" class="prev-day" href="'.$this->naviHref.'?month='.$this->_prevMonth().'&day='.$this->_prevDay().'">Prev</a></div>'.
             '<span class="title">'. $this->_currentMonth() . " " . $this->_currentDay() . " " .  $this->_currentYear() . '</span>'.
-            '<div id="'.$this->_nextMonth().'" class="next-month"><a id="'.$this->_nextDay().'" class="next" href="'.$this->naviHref.'?month='.$this->_nextMonth().'&day='.$this->_nextDay().'">Next</a></div><div class="box-content"><ul class="dates">'.$this->_showHours().'</ul></div></div></div></div>';
+            '<div id="'.$this->_nextMonth().'" class="next-month"><a id="'.$this->_nextDay().'" class="next-day" href="'.$this->naviHref.'?month='.$this->_nextMonth().'&day='.$this->_nextDay().'">Next</a></div><div class="box-content"><ul class="dates">'.$this->_showHours().'</ul></div></div></div>';
 
     }
 

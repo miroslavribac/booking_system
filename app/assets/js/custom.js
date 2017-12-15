@@ -50,6 +50,21 @@ $(document).ready(function(){
         });
     }
 
+    Calendar();
+    function Calendar(){
+        $.ajax({
+            url: "classes/AjaxFunctions.php",
+            method: "POST",
+            data: "data",
+            success: function(data){
+                $(".calendar").html(data);
+            },
+            error: function(xhr, status, error){
+                console.log(status);
+            }
+        });
+    }
+
     $(".box-content .dates li.slot-green").click(function(){
         alert($(this).attr("id"));
     });
