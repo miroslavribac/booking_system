@@ -19,7 +19,7 @@ include("classes/Calendar.php");
 <div class="container-fluid">
     <?php
     $calendar = new Calendar();
-    echo $calendar->showDaily();
+    echo $calendar->show();
     ?>
 </div>
 

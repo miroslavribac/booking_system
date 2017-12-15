@@ -117,3 +117,7 @@
 [Fri Dec 15 09:02:48.213623 2017] [:error] [pid 1882] [client 127.0.0.1:33807] PHP Notice:  Array to string conversion in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 157
 [Fri Dec 15 09:02:48.213628 2017] [:error] [pid 1882] [client 127.0.0.1:33807] PHP Notice:  Array to string conversion in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 157
 [Fri Dec 15 09:02:48.213633 2017] [:error] [pid 1882] [client 127.0.0.1:33807] PHP Notice:  Array to string conversion in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 157
+[Fri Dec 15 09:31:47.203156 2017] [:error] [pid 5306] [client 127.0.0.1:40932] PHP Fatal error:  Call to undefined method Booking_Object::allBookingsPerDate() in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 148
+[Fri Dec 15 09:32:13.055909 2017] [:error] [pid 3038] [client 127.0.0.1:41038] PHP Warning:  Illegal string offset 'time_slot' in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 152
+[Fri Dec 15 09:32:13.055940 2017] [:error] [pid 3038] [client 127.0.0.1:41038] PHP Warning:  Illegal string offset 'time_slot' in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 152
+[Fri Dec 15 09:32:13.055947 2017] [:error] [pid 3038] [client 127.0.0.1:41038] PHP Warning:  Illegal string offset 'time_slot' in /home/miroslav/projects/booking_system/app/classes/Calendar.php on line 152

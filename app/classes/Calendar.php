@@ -35,6 +35,7 @@ class Calendar {
     /**
      * print out the calendar
      */
+    /*
     public function show() {
         $year  = null;
 
@@ -96,11 +97,12 @@ class Calendar {
         $content.='</div>';
         return $content;
     }
+    */
 
     /**
      * Prints out daily calendar
      */
-    public function showDaily()
+    public function show()
     {
         $year  = null;
 
@@ -143,22 +145,12 @@ class Calendar {
 
     private function _showHours()
     {
-        $slots = [];
-        $bookingObject = new Booking_Object();
-        $allBookingsPerDate = $bookingObject->allBookingsPerDate($this->currentMonth, $this->_currentDay(), $this->_currentYear());
-
         $result = "";
-        foreach($allBookingsPerDate as $booking){
-            $slots[] = $booking['time_slot'];
-        }
-
-        $available_slots = array_diff($this->hours , $slots);
-        $booked_slots = array_intersect($this->hours, $slots);
-
-
+        $bookingObject = new Booking_Object();
+        $time_slots = $bookingObject->timeSlotsPerDate($this->currentMonth, $this->_currentDay(), $this->_currentYear());
 
         foreach($this->hours as $key => $hour){
-            if(in_array($hour, $slots)){
+            if(in_array($hour, $time_slots)){
                 $result .= '<li id="'.$hour.'" class="slot-red">'.$hour.'</li>';
             }else{
                 $result .= '<li id="'.$hour.'" class="slot-green">'.$hour.'</li>';

@@ -244,7 +244,8 @@ div#calendar ul.dates .slot-green:hover {
 div#calendar ul.dates .slot-red {
     background-color: #ffffff;
     color: red;
-    cursor: pointer;
+    /*cursor: pointer;*/
+    cursor: not-allowed;
 }
 div#calendar ul.dates .slot-red:hover{
     background-color: red;
