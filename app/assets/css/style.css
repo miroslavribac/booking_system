@@ -232,3 +232,12 @@ div#calendar ul.dates li{
 div.clear{
     clear:both;
 }
+div#calendar ul.dates .slot-green {
+    background-color: #ffffff;
+    color: green;
+    cursor: pointer;
+}
+div#calendar ul.dates .slot-green:hover {
+    background-color: green;
+    color: #ffffff;
+}

@@ -14,17 +14,21 @@ class Calendar {
     /********************* PROPERTY ********************/
     private $dayLabels = array("Mon","Tue","Wed","Thu","Fri","Sat","Sun");
 
-    private $currentYear=0;
+    private $currentYear = 0;
 
-    private $currentMonth=0;
+    private $currentMonth = 0;
 
-    private $currentDay=0;
+    private $currentDay = 0;
 
-    private $currentDate=null;
+    private $currentHour = 0;
 
-    private $daysInMonth=0;
+    private $currentDate = null;
 
-    private $naviHref= null;
+    private $daysInMonth = 0;
+
+    private $naviHref = null;
+
+    public $hours = array( "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00");
 
     /********************* PUBLIC **********************/
 
@@ -104,6 +108,8 @@ class Calendar {
 
         $day = null;
 
+        $hour = null;
+
         if(null==$year && isset($_GET['year'])){
             $this->currentYear = $_GET['year'];
         }else{
@@ -122,6 +128,12 @@ class Calendar {
             $this->currentDay = date("d", time());
         }
 
+        if(null==$hour && isset($_GET['hour'])){
+            $this->currentHour = $_GET['hour'];
+        }else{
+            $this->currentHour = date("H:i");
+        }
+
         return
             '<div id="calendar"><div class="box"><div class="header"><div id="'.$this->_prevMonth().'" class="prev-month"><a id="'.$this->_prevDay().'" class="prev" href="'.$this->naviHref.'?month='.$this->_prevMonth().'&day='.$this->_prevDay().'">Prev</a></div>'.
             '<span class="title">'. $this->_currentMonth() . " " . $this->_currentDay() . " " .  $this->_currentYear() . '</span>'.
@@ -135,8 +147,12 @@ class Calendar {
         $allBookingsPerDate = $bookingObject->allBookingsPerDate($this->currentMonth, $this->_currentDay(), $this->_currentYear());
 
         $result = "";
-        foreach($allBookingsPerDate as $booking){
-            $result .= "<li>".$booking['time_slot']."</li>";
+//        foreach($allBookingsPerDate as $booking){
+//            $result .= "<li>".$booking['time_slot']."</li>";
+//        }
+
+        foreach($this->hours as $hour){
+            $result .= '<li id="'.$hour.'" class="slot-green">'.$hour.'</li>';
         }
 
         return $result;
