@@ -9,6 +9,9 @@ class Calendar {
      */
     public function __construct(){
         $this->naviHref = htmlentities($_SERVER['PHP_SELF']);
+        $this->currentMonth = date('m', mktime(0, 0, 0, 0, 10));
+        $this->currentDay= date('d', mktime(0, 0, 0, 0, 10));
+        $this->currentYear= date('Y', mktime(0, 0, 0, 0, 10));
     }
 
     /********************* PROPERTY ********************/
@@ -143,7 +146,7 @@ class Calendar {
 
     }
 
-    private function _showHours()
+    public function _showHours()
     {
         $result = "";
         $bookingObject = new Booking_Object();
@@ -161,7 +164,7 @@ class Calendar {
 
     }
 
-    private function _prevDay()
+    public function _prevDay()
     {
         $prevDay = "";
         if($this->currentDay == 01){
@@ -172,7 +175,7 @@ class Calendar {
         return $prevDay;
     }
 
-    private function _nextDay()
+    public function _nextDay()
     {
         $currentDay = "";
 
@@ -185,13 +188,13 @@ class Calendar {
         return $currentDay;
     }
 
-    private function _currentDay()
+    public function _currentDay()
     {
 //        return $this->currentDay;
         return date('d', mktime(0, 0, 0, $this->currentMonth, $this->currentDay));
     }
 
-    private function _prevMonth()
+    public function _prevMonth()
     {
         $prevMonth = "";
         if($this->currentMonth == 01){
@@ -204,7 +207,7 @@ class Calendar {
         return $prevMonth;
     }
 
-    private function _nextMonth()
+    public function _nextMonth()
     {
         $nextMonth = "";
         if(($this->_curentMonthLastDay() == $this->currentDay) && ($this->currentMonth == 12)){
@@ -217,22 +220,22 @@ class Calendar {
         return $nextMonth;
     }
 
-    private function _currentMonth()
+    public function _currentMonth()
     {
         return date('M', mktime(0, 0, 0, $this->currentMonth, 10));
     }
 
-    private function _currentYear()
+    public function _currentYear()
     {
         return date('Y', mktime(0, 0, 0, $this->currentMonth, $this->currentDay, $this->currentMonth == "01" ? $this->currentYear+1 : $this->currentYear));
     }
 
-    private function _curentMonthLastDay()
+    public function _curentMonthLastDay()
     {
         return date("d", strtotime("last day of " . strval($this->currentMonth) . " month"));
     }
 
-    private function _previousMonthLastDay()
+    public function _previousMonthLastDay()
     {
         return date("d", strtotime("last day of " . strval($this->currentMonth-1) . " month"));
     }

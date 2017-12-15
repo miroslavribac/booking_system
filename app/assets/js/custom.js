@@ -9,7 +9,7 @@ $(document).ready(function(){
     function toggleBookingFormInputs(){
 
         $(".car-registration .next").click(function(){
-            $(".booking-date").toggleClass("active");
+            $(".calendar").toggleClass("active");
             $(".car-registration").toggleClass("hidden");
         });
         $(".booking-date .next").click(function(){
@@ -53,6 +53,16 @@ $(document).ready(function(){
     $(".box-content .dates li.slot-green").click(function(){
         alert($(this).attr("id"));
     });
+
+
+    updateCalendar();
+
+    function updateCalendar(){
+        $(".header a").click(function(e){
+            e.preventDefault();
+            alert('Works');
+        });
+    }
 
 });
 
