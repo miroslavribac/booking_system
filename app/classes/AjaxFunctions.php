@@ -27,8 +27,6 @@ function storeBookingObject($post){
 
     $booking_info = json_encode($booking_info);
 
-//    echo $booking_info;
-
     $db = new DB();
     $query = "INSERT INTO appointments(reg_number, first_name, last_name, email, address, booking_info, appointment_date, time_slot) VALUES(:reg_number, :first_name, :last_name, :email, :address, :booking_info, :appointment_date, :time_slot)";
     $db->query($query);

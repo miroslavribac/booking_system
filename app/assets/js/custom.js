@@ -50,7 +50,9 @@ $(document).ready(function(){
         });
     }
 
-
+    $(".box-content .dates li.slot-green").click(function(){
+        alert($(this).attr("id"));
+    });
 
 });
 
