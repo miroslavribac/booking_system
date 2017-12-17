@@ -8,6 +8,7 @@ ini_set('display_errors',1);
 <head>
     <title>Book for change weells</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/bootstrap-theme.css" rel="stylesheet" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -32,7 +33,20 @@ ini_set('display_errors',1);
 <!--                        <input type="text" name="registration-number" id="registration-number" placeholder="BG025SJ"/>-->
 <!--                        <button type="button" class="next">Next</button>-->
 <!--                    </div>-->
-                    <div class="calendar"></div>
+                    <div class="calendar">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p>Pick a date for changing wheels: </p>
+                                <input type="text" id="datepicker" />
+                                <button type="button" class="search">Search</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="calendar-box">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="personal-info">
                         <p>Personal Informations</p>
                         <div class="form-group">
@@ -78,10 +92,8 @@ ini_set('display_errors',1);
     </div>
 </div>
 
-
-
-
 <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="assets/js/custom.js"></script>

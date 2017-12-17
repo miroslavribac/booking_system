@@ -1,7 +1,10 @@
 $(document).ready(function(){
-    $('#datepicker').datepicker({
-        format: 'mm/dd/yyyy',
-        startDate: '-3d'
+    $( function() {
+        $( "#datepicker" ).datepicker();
+    } );
+
+    $(".datepicker .datepicker-days td").click(function(){
+        alert("Works");
     });
 
     toggleBookingFormInputs();
@@ -24,6 +27,21 @@ $(document).ready(function(){
             $(".location-info .custom-location").toggleClass("active-inline");
         });
     }
+
+    $(".calendar .search").click(function(){
+        $.ajax({
+            url: "classes/AjaxFunctions.php",
+            method: "POST",
+            data: "date="+$("#datepicker").val(),
+            success: function(data){
+                $(".calendar").css("height", "300");
+                $(".calendar-box").html(data);
+            },
+            error: function(xhr, status, error){
+                console.log(status);
+            }
+        });
+    });
 
     sendBookingData();
 
@@ -50,7 +68,7 @@ $(document).ready(function(){
         });
     }
 
-    Calendar();
+    // Calendar();
     function Calendar(){
         $.ajax({
             url: "classes/AjaxFunctions.php",
@@ -69,15 +87,6 @@ $(document).ready(function(){
         alert($(this).attr("id"));
     });
 
-
-    updateCalendar();
-
-    function updateCalendar(){
-        $(".header a").click(function(e){
-            e.preventDefault();
-            alert('Works');
-        });
-    }
 
 });
 

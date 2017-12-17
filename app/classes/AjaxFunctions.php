@@ -2,15 +2,16 @@
 error_reporting(E_ALL);
 ini_set('display_errors',1);
 
-//include("DB.php");
 include("Calendar.php");
 
-if(isset($_POST["data"])){
-
+if(isset($_POST["date"])){
+    $date = $_POST["date"];
+    $date_array = explode("/", $date);
+    $month = $date_array[0];
+    $day = $date_array[1];
+    $year = $date_array[2];
     $calendar = new Calendar();
-
-    echo $calendar->show();
-
+    echo $calendar->showCalendar($month, $day, $year);
 }
 
 

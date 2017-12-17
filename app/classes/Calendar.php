@@ -143,6 +143,35 @@ class Calendar {
 
     }
 
+    public function showCalendar($month, $day, $year)
+    {
+
+        if($year){
+            $this->currentYear = $year;
+        }else{
+            $this->currentYear = date("Y", time());
+        }
+
+        if($month){
+            $this->currentMonth = $month;
+        }else{
+            $this->currentMonth = date("m", time());
+        }
+
+        if($day){
+            $this->currentDay = $day;
+        }else{
+            $this->currentDay = $this->currentDay = date("d", time());
+        }
+
+
+        return
+            '<div class="box"><div class="header"><div id="'.$this->_prevMonth().'" class="prev-month"><a id="'.$this->_prevDay().'" class="prev-day" href="">Prev</a></div>'.
+            '<span class="title">'. $this->_currentMonth() . " " . $this->_currentDay() . " " .  $this->_currentYear() . '</span>'.
+            '<div id="'.$this->_nextMonth().'" class="next-month"><a id="'.$this->_nextDay().'" class="next-day" href="">Next</a></div><div class="box-content"><ul class="dates">'.$this->_showHours().'</ul></div></div></div>';
+
+    }
+
     public function _showHours()
     {
         $result = "";
